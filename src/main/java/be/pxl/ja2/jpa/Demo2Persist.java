@@ -15,7 +15,9 @@ public class Demo2Persist {
 			entityManagerFactory = Persistence.createEntityManagerFactory("musicdb_pu");
 			entityManager = entityManagerFactory.createEntityManager();
 			Contact sophie = new Contact("Sophie", 555666, "sophie@pxl.be");
+			entityManager.getTransaction().begin();
 			entityManager.persist(sophie);
+			entityManager.getTransaction().commit();
 		}
 		finally {
 			if (entityManager != null) {
